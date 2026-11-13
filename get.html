@@ -1,0 +1,29 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Marble Worlds – Scarica</title><meta name="theme-color" content="#7FD3DE"><link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="stylesheet" href="style.css">
+<script>
+// One link for the QR and for sharing: the phone's own store, the query passed on where the store
+// keeps it (Play's install referrer; Apple's campaign token). APPLE_APP_ID: fill in once the app is live.
+(function () {
+  var q = location.search.replace(/^\?/, "");
+  var ua = navigator.userAgent || "";
+  var apple = "https://apps.apple.com/app/idAPPLE_APP_ID?pt=marbleworlds&ct=" + encodeURIComponent(q || "qr") + "&mt=8";
+  var play = "https://play.google.com/store/apps/details?id=com.nixare.marbleworlds&referrer=" + encodeURIComponent(q || "utm_source=qr");
+  if (/android/i.test(ua)) location.replace(play);
+  else if (/iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && "ontouchend" in document)) location.replace(apple);
+  window.__stores = { apple: apple, play: play };
+})();
+</script></head><body class="page">
+<header class="page-top"><div class="wrap"><a class="brand" href="index.html"><img src="img/icon.webp" alt="" width="34" height="34"><span>Marble <b>Worlds</b></span></a>
+<nav aria-label="Pagine / Pages"><a href="index.html#support">Supporto</a><a href="privacy.html">Privacy</a></nav></div></header>
+<main class="doc">
+<article class="paper">
+<h1>Marble Worlds</h1>
+<p>Inclina, la biglia rotola. / Tilt, and the marble rolls.</p>
+<div class="stores">
+<a class="badge" id="apple" href="https://apps.apple.com/app/idAPPLE_APP_ID"><img src="img/badge_apple.svg" alt="Download on the App Store" width="150" height="50"></a>
+<a class="badge" id="play" href="https://play.google.com/store/apps/details?id=com.nixare.marbleworlds"><img src="img/badge_play_it.webp" alt="Disponibile su Google Play" width="194" height="75"></a>
+</div>
+</article>
+<script>if (window.__stores) { document.getElementById("apple").href = __stores.apple; document.getElementById("play").href = __stores.play; }</script>
+</main>
+<footer><div class="wrap"><nav aria-label="Pagine / Pages"><a href="index.html">Marble Worlds</a><a href="privacy.html">Privacy</a></nav><span>© 2026 Nicola Aresta</span></div></footer>
+</body></html>

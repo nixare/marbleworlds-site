@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Marble Worlds – Inclina, la biglia rotola</title>
+<meta name="description" content="Marble Worlds: le piste da biglie della spiaggia, sul telefono. Inclina il telefono e porta la biglia in buca. Quattro mondi, ottanta piste e una pista nuova ogni giorno. Gratis per iPhone e Android.">
+<meta name="theme-color" content="#7FD3DE">
+<link rel="canonical" href="https://nixare.github.io/marbleworlds-site/">
+<meta property="og:title" content="Marble Worlds – Inclina, la biglia rotola">
+<meta property="og:description" content="Quattro mondi, ottanta piste e una pista nuova ogni giorno. Inclina il telefono e porta la biglia in buca. Gratis.">
+<meta property="og:image" content="https://nixare.github.io/marbleworlds-site/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://nixare.github.io/marbleworlds-site/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<!-- App Store: once the app is live, replace APPLE_APP_ID here and in get.html with its numeric id
+     and add <meta name="apple-itunes-app" content="app-id=…"> for Safari's banner. -->
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/Outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>
+// Italian first, as in the game; a browser in another language, #en or the switch shows the English.
+(function () {
+  var d = document.documentElement, h = location.hash, en = false;
+  try { var s = localStorage.getItem("lang"); if (h === "#it" || h === "#en") en = h === "#en"; else if (s) en = s === "en"; else en = !/^it\b/i.test(navigator.language || "it"); } catch (e) {}
+  if (en) { d.classList.add("en"); d.lang = "en"; }
+  // The visitor's own store first: Android or Apple; a computer sees both and the QR.
+  var ua = navigator.userAgent || "";
+  if (/android/i.test(ua)) d.classList.add("android");
+  else if (/iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && "ontouchend" in document)) d.classList.add("apple");
+})();
+function setLang(l) {
+  var d = document.documentElement;
+  d.classList.toggle("en", l === "en");
+  d.lang = l;
+  try { localStorage.setItem("lang", l); } catch (e) {}
+}
+</script>
+</head>
+<body class="i18n">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="img/icon.webp" alt="" width="34" height="34"><span>Marble <b>Worlds</b></span></a>
+    <div class="lang" role="group" aria-label="Lingua / Language">
+      <button type="button" data-l="it" onclick="setLang('it')">IT</button>
+      <button type="button" data-l="en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="title">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="clouds" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="shore" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="title-row"><img class="app-icon" src="img/icon-hero.webp" alt="" width="128" height="128"><h1 class="wordmark" id="title"><span>Marble</span><span class="w">Worlds</span></h1></div>
+      <p class="tagline"><span lang="it">Inclina, la biglia rotola.</span><span lang="en">Tilt, and the marble rolls.</span></p>
+      <p class="hook">
+        <span lang="it">Le piste da biglie della spiaggia, sul telefono. Inclinalo e la biglia scende da quella parte: evita le buche, prendi la rincorsa sul dosso, aspetta che il cancello si apra. <em>Poi in buca, prima che il tempo finisca.</em></span>
+        <span lang="en">The marble runs of the beach, on your phone. Tilt it and the marble rolls that way: dodge the holes, take a run-up at the bump, wait for the gate to open. <em>Then into the cup, before the clock runs out.</em></span>
+      </p>
+      <ul class="chips" role="list">
+        <li><span lang="it">Gratis</span><span lang="en">Free</span></li>
+        <li><span lang="it">4 mondi, 80 piste</span><span lang="en">4 worlds, 80 tracks</span></li>
+        <li><span lang="it">Una pista nuova ogni giorno</span><span lang="en">A new track every day</span></li>
+        <li><span lang="it">Senza account</span><span lang="en">No account</span></li>
+      </ul>
+      <div class="stores" id="get">
+        <a class="badge store-apple" href="https://apps.apple.com/app/idAPPLE_APP_ID?pt=marbleworlds&amp;ct=site&amp;mt=8"><img src="img/badge_apple.svg" alt="Download on the App Store" width="150" height="50"></a>
+        <a class="badge store-play" href="https://play.google.com/store/apps/details?id=com.nixare.marbleworlds&amp;referrer=utm_source%3Dsite"><img lang="it" src="img/badge_play_it.webp" alt="Disponibile su Google Play" width="194" height="75"><img lang="en" src="img/badge_play_en.webp" alt="Get it on Google Play" width="194" height="75"></a>
+      </div>
+    </div>
+    <div class="phone">
+      <img src="img/hero.webp" alt="" width="600" height="1304" fetchpriority="high">
+      <div class="marbles" aria-hidden="true"><span class="marble c"></span><span class="marble t"></span><span class="marble g"></span></div>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#how" aria-label="Come si gioca / How it plays"><span aria-hidden="true">↓</span></a>
+</section>
+
+<section id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <p class="kicker"><span lang="it">Come si gioca</span><span lang="en">How it plays</span></p>
+    <h2 class="section-title" id="how-title"><span lang="it">Niente bottoni, solo il telefono</span><span lang="en">No buttons, just the phone</span></h2>
+    <p class="section-lede">
+      <span lang="it">Durante la gara sullo schermo non c'è niente da toccare: conta solo come tieni il telefono. Si impara sulla prima pista e si gioca con una mano.</span>
+      <span lang="en">During a race there is nothing on screen to touch: only the way you hold the phone counts. You learn it on the first track and play with one hand.</span>
+    </p>
+    <div class="track">
+      <ol class="steps" role="list">
+        <li class="step"><span class="n" aria-hidden="true">1</span><div>
+          <h3><span lang="it">Inclina</span><span lang="en">Tilt</span></h3>
+          <p><span lang="it">Tieni il telefono comodo, come per leggere, e inclinalo: la biglia scende da quella parte.</span><span lang="en">Hold the phone the way you read and tilt it: the marble rolls that way.</span></p></div></li>
+        <li class="step"><span class="n" aria-hidden="true">2</span><div>
+          <h3><span lang="it">Segui la pista</span><span lang="en">Follow the track</span></h3>
+          <p><span lang="it">Evita le buche, prendi la rincorsa sul dosso, aspetta che il cancello si apra e che il ponte si abbassi.</span><span lang="en">Dodge the holes, take a run-up at the bump, wait for the gate to open and the bridge to come down.</span></p></div></li>
+        <li class="step"><span class="n" aria-hidden="true">3</span><div>
+          <h3><span lang="it">In buca</span><span lang="en">Into the cup</span></h3>
+          <p><span lang="it">Arriva in buca prima che il tempo finisca. Entro il tempo di riferimento sono tre stelle.</span><span lang="en">Reach the cup before the clock runs out. Within the reference time, that's three stars.</span></p></div></li>
+      </ol>
+    </div>
+    <div class="after">
+      <div class="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <p><b><span lang="it">Tre stelle.</span><span lang="en">Three stars.</span></b> <span lang="it">Ogni buca e ogni caduta costano secondi. Le stelle aprono piste, mondi e biglie nuove.</span><span lang="en">Every hole and every fall costs seconds. Stars open tracks, worlds and new marbles.</span></p></div>
+      <div class="note"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 9v4l3 2M9 2h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <p><b><span lang="it">Meno di un minuto.</span><span lang="en">Under a minute.</span></b> <span lang="it">Una gara è breve: una in coda alla cassa, tre sul divano.</span><span lang="en">A race is short: one in the queue, three on the sofa.</span></p></div>
+      <div class="note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 9c-1 2-1 4 0 6M21 9c1 2 1 4 0 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <p><b><span lang="it">Con una mano.</span><span lang="en">One hand.</span></b> <span lang="it">Solo l'inclinazione. Suoni, musica e vibrazione si spengono dalle opzioni.</span><span lang="en">Just the tilt. Sounds, music and vibration switch off in the options.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="features" aria-labelledby="more">
+  <div class="wrap">
+    <h2 class="section-title" id="more"><span lang="it">Quattro isole in mare</span><span lang="en">Four islands at sea</span></h2>
+    <article class="feature" aria-labelledby="f-worlds">
+      <div class="feature-copy">
+        <p class="kicker"><span lang="it">Quattro mondi, ottanta piste</span><span lang="en">Four worlds, eighty tracks</span></p>
+        <h3 id="f-worlds"><span lang="it">Spiaggia, Pineta, Scogli e Neve</span><span lang="en">Beach, Pinewood, Cliffs and Snow</span></h3>
+        <p><span lang="it">Venti piste per isola. Si parte piano, con una curva e una buca; si finisce con calamite, scivoli, carrelli, mulini, ponti levatoi e strettoie, una dopo l'altra.</span><span lang="en">Twenty tracks each. It starts gently, with a bend and a hole; it ends with magnets, slides, carts, mills, drawbridges and narrows, one after the other.</span></p>
+      </div>
+      <div class="phones">
+        <figure><img src="img/mondi.webp" alt="" width="460" height="1000" loading="lazy"><figcaption class="sr"><span lang="it">La mappa delle quattro isole</span><span lang="en">The map of the four islands</span></figcaption></figure>
+        <figure><img src="img/piste.webp" alt="" width="460" height="1000" loading="lazy"><figcaption class="sr"><span lang="it">Le piste della Pineta, con le stelle</span><span lang="en">The Pinewood tracks, with their stars</span></figcaption></figure>
+      </div>
+    </article>
+    <article class="feature flip" aria-labelledby="f-day">
+      <div class="feature-copy">
+        <p class="kicker"><span lang="it">Una pista al giorno</span><span lang="en">A track every day</span></p>
+        <h3 id="f-day"><span lang="it">Oggi tocca a questa</span><span lang="en">Today it's this one</span></h3>
+        <p><span lang="it">Ogni giorno una pista del gioco è la pista del giorno: la prima volta paga conchiglie in più, e i giorni di fila contano.</span><span lang="en">Every day one track is the track of the day: the first run pays extra shells, and days in a row count.</span></p>
+      </div>
+      <div class="phones">
+        <figure><img src="img/home.webp" alt="" width="460" height="1000" loading="lazy"><figcaption class="sr"><span lang="it">La home, con la pista del giorno</span><span lang="en">The home screen, with the track of the day</span></figcaption></figure>
+        <figure><img src="img/gara.webp" alt="" width="460" height="1000" loading="lazy"><figcaption class="sr"><span lang="it">Una gara sulla spiaggia, vinta con tre stelle</span><span lang="en">A race on the beach, won with three stars</span></figcaption></figure>
+      </div>
+    </article>
+    <article class="feature" aria-labelledby="f-machine">
+      <div class="feature-copy">
+        <p class="kicker"><span lang="it">Il distributore</span><span lang="en">The marble machine</span></p>
+        <h3 id="f-machine"><span lang="it">Gira la manovella, vinci biglie nuove</span><span lang="en">Turn the crank, win new marbles</span></h3>
+        <p><span lang="it">Le conchiglie vinte in pista si spendono al distributore: giri la manovella col dito e una biglia scende lungo la spirale di vetro. Venti biglie da collezionare, otto escono solo da lì; una su venti è leggendaria.</span><span lang="en">Shells won on the tracks go into the crank machine: turn the crank with your finger and a marble comes down the glass spiral. Twenty marbles to collect, eight only from there; one in twenty is legendary.</span></p>
+      </div>
+      <div class="phones">
+        <figure><img src="img/distributore.webp" alt="" width="460" height="1000" loading="lazy"><figcaption class="sr"><span lang="it">Il distributore a manovella con la spirale di vetro</span><span lang="en">The crank machine with its glass spiral</span></figcaption></figure>
+        <figure><img src="img/biglie.webp" alt="" width="460" height="1000" loading="lazy"><figcaption class="sr"><span lang="it">La collezione: Corallo, Mare, Sole, Vetro…</span><span lang="en">The collection: Coral, Sea, Sun, Glass…</span></figcaption></figure>
+      </div>
+    </article>
+    <article class="feature flip" aria-labelledby="f-editor">
+      <div class="feature-copy">
+        <p class="kicker"><span lang="it">Crea la tua pista</span><span lang="en">Build your own track</span></p>
+        <h3 id="f-editor"><span lang="it">Costruisci e condividi con un codice</span><span lang="en">Build it, share it with a code</span></h3>
+        <p><span lang="it">L'editor ha i pezzi di tutti i mondi: rettilinei, curve, discese, buche, ostacoli e macchine. Costruisci la tua pista, provala e mandala agli amici con un codice di sei lettere.</span><span lang="en">The editor has the pieces of every world: straights, bends, slopes, holes, obstacles and machines. Build a track, try it and send it to friends with a six-letter code.</span></p>
+      </div>
+      <div class="phones">
+        <figure><img src="img/editor.webp" alt="" width="460" height="1000" loading="lazy"><figcaption class="sr"><span lang="it">L'editor delle piste</span><span lang="en">The track editor</span></figcaption></figure>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="final" aria-labelledby="final">
+  <div class="wrap final-grid">
+    <div>
+      <h2 class="section-title" id="final"><span lang="it">La prima pista ti aspetta</span><span lang="en">The first track is waiting</span></h2>
+      <p class="section-lede"><span lang="it">Gratis su iPhone e Android. Nessun account: apri e inclina.</span><span lang="en">Free on iPhone and Android. No account: open it and tilt.</span></p>
+      <div class="stores">
+        <a class="badge store-apple" href="https://apps.apple.com/app/idAPPLE_APP_ID?pt=marbleworlds&amp;ct=site&amp;mt=8"><img src="img/badge_apple.svg" alt="Download on the App Store" width="150" height="50"></a>
+        <a class="badge store-play" href="https://play.google.com/store/apps/details?id=com.nixare.marbleworlds&amp;referrer=utm_source%3Dsite"><img lang="it" src="img/badge_play_it.webp" alt="Disponibile su Google Play" width="194" height="75"><img lang="en" src="img/badge_play_en.webp" alt="Get it on Google Play" width="194" height="75"></a>
+      </div>
+    </div>
+    <figure class="qr">
+      <img src="img/qr.svg" alt="Codice QR per scaricare Marble Worlds / QR code to download Marble Worlds" width="164" height="164" loading="lazy">
+      <figcaption><span lang="it">Inquadralo col telefono</span><span lang="en">Scan it with your phone</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section aria-labelledby="maker">
+  <div class="wrap maker">
+    <img src="img/icon.webp" alt="" width="96" height="96" loading="lazy">
+    <div>
+      <p class="kicker" id="maker"><span lang="it">Chi lo fa</span><span lang="en">Who makes it</span></p>
+      <p class="maker-line"><span lang="it">Marble Worlds è fatto da Nicola Aresta, in Italia.</span><span lang="en">Marble Worlds is made by Nicola Aresta, in Italy.</span></p>
+      <p><a class="more" href="https://nicolaaresta-website.aresta-nicola.workers.dev/"><span lang="it">Chi è Nicola</span><span lang="en">About Nicola</span> →</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="support" aria-labelledby="support-title">
+  <div class="wrap">
+    <div class="card">
+      <h2 id="support-title"><span lang="it">Supporto</span><span lang="en">Support</span></h2>
+      <p><span lang="it">Domande, problemi o idee? Scrivici. Indica il modello del dispositivo, la versione del sistema e, se puoi, su che pista eri e cosa stavi facendo quando è comparso il problema.</span><span lang="en">Questions, problems or ideas? Write to us. Include your device model, system version and, if you can, which track you were on and what you were doing when the problem appeared.</span></p>
+      <p><a class="mail" href="mailto:aresta.nicola@gmail.com?subject=Marble%20Worlds">aresta.nicola@gmail.com</a></p>
+      <p><span lang="it">I progressi stanno sul telefono. Vuoi togliere una pista che hai condiviso con un codice? Scrivici il codice e la togliamo.</span><span lang="en">Your progress lives on your phone. Want a track you shared with a code taken down? Send us the code and we'll remove it.</span></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- On a phone, once the hero's buttons are past: one bar with the phone's own store. -->
+<div class="dock" id="dock" aria-hidden="true">
+  <img src="img/icon.webp" alt="" width="40" height="40">
+  <div><b>Marble Worlds</b><small><span lang="it">Inclina, la biglia rotola · Gratis</span><span lang="en">Tilt, and the marble rolls · Free</span></small></div>
+  <a class="dock-get store-apple" href="https://apps.apple.com/app/idAPPLE_APP_ID?pt=marbleworlds&amp;ct=site_dock&amp;mt=8" tabindex="-1"><span lang="it">Scarica</span><span lang="en">Get it</span></a>
+  <a class="dock-get store-play" href="https://play.google.com/store/apps/details?id=com.nixare.marbleworlds&amp;referrer=utm_source%3Dsite_dock" tabindex="-1"><span lang="it">Scarica</span><span lang="en">Get it</span></a>
+</div>
+<script>
+(function () {
+  var dock = document.getElementById("dock"), get = document.getElementById("get");
+  if (!("IntersectionObserver" in window) || !dock || !get) return;
+  new IntersectionObserver(function (e) {
+    var on = !e[0].isIntersecting && e[0].boundingClientRect.top < 0;
+    dock.classList.toggle("on", on);
+    dock.setAttribute("aria-hidden", on ? "false" : "true");
+    dock.querySelectorAll("a").forEach(function (a) { a.tabIndex = on ? 0 : -1; });
+  }).observe(get);
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Pagine / Pages">
+      <a href="privacy.html">Privacy</a>
+      <a href="#support"><span lang="it">Supporto</span><span lang="en">Support</span></a>
+    </nav>
+    <span>© 2026 Nicola Aresta</span>
+  </div>
+</footer>
+</body>
+</html>
